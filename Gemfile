@@ -9,7 +9,7 @@ group :development, :test do
 end
 group :production do
   gem 'pg'
-  gem 'rails _12factor'
+  gem 'rails_12factor'
 end
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
