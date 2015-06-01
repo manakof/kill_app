@@ -1,0 +1,13 @@
+<h1>users_info edit page </h1>
+<div class="kill-form">
+  <%=form_tag(users_info_path(@user),method:'patch') do %>
+    <%=render 'shared/error_messages'%><br/>
+
+    <%=label @user.users_info,:photo%>
+    <%=text_field_tag 'users_info[photo]',@user.users_info.photo%><br/>
+    <%=label @user.users_info,:introduce%>
+    <%=text_area_tag 'users_info[introduction]',@user.users_info.introduction%><br/>
+
+    <%=submit_tag ["save"] %>
+  <%end%>
+</div>

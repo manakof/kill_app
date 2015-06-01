@@ -1,0 +1,19 @@
+  <div class="media_back">
+  
+    <div class="media_no">
+      <% a = medium.created_at.to_s(:db).split %>
+      <%= a[0]%>
+      <%= a[1]%>
+    </div>
+   
+    <div class="media_id">
+      <%=medium.media_id%><br/>
+      <%=medium.user_id%>
+    </div>
+    
+    <div class="media_content">
+      <%=medium.content.html_safe%>
+    </div>
+
+  </div>
+

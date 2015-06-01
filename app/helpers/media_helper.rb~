@@ -1,0 +1,5 @@
+module MediaHelper
+  def content_form
+   $content_type
+  end
+end

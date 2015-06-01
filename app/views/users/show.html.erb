@@ -1,0 +1,47 @@
+<div id="title">
+  <%=Time.now%><br>
+  <%=Date.today%><br>
+  <h1>show page:</h1>
+  <a href="/">Home</a>
+</div>
+<h1><%= @user.name %></h1>
+  <h3>Introduction</h3><%=@user.users_info.introduction%>
+ 
+  <div class="media_back">
+  <%= form_tag '/media', method:'create' do%>
+    <%=label :medium,:content%>
+    <%=text_area :medium,:content %><br/>
+  
+    video: <%=radio_button :medium, :media_id,'video',{}%><br/>
+    mucic: <%=radio_button :medium, :media_id,'music',{}%><br/>
+
+    <%=submit_tag ["create"]%>
+  <%end%>
+  </div>
+
+
+  <% if current_user.media.any? %>
+    <%  @media.each do |medium| %>
+    <div class="media_back">
+      <div class="media_no">
+        <%=medium.created_at%>
+      </div>
+
+      <div class="media_id">
+        <%=medium.media_id%>
+        <%=medium.user_id%>
+      </div>
+
+      <div class="media_content">
+        <%=medium.content.html_safe%>
+      </div>
+
+      <% if current_user?(medium.user)%>
+        <%= link_to "delete",medium,method: :delete,data: {confirm:"You shure?"},title: medium.content%>
+      <%end%>
+
+      </div>
+    <% end%>
+  <% end%>
+
+ 

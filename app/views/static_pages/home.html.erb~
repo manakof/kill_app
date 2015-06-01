@@ -1,0 +1,18 @@
+<div class="top-title">
+  <h1>KIll-Hz</h1>
+</div>
+
+<%= page_entries_info @media%>
+
+<div class="page_n">
+  <%=paginate @media%>
+</div>
+
+  <div id="media">
+    <%= render @media %>
+  </div>
+
+<div class="page_n">
+  <%=paginate @media%>
+</div>
+

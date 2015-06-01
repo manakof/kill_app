@@ -16,7 +16,7 @@
 
 <div class="link_b">
 <% if signed_in?%>
-  <%=link_to "Home",root_path%>
+  <%=link_to "Hom",root_path%>
   <%=link_to "show",user_path(current_user)%>
   <%=link_to "Users",users_path%>
   <%=link_to "Edit",edit_user_path(current_user)%>

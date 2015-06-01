@@ -1,0 +1,6 @@
+class AddRememberTokenToTempUser < ActiveRecord::Migration
+  def change
+    add_column :temp_user,:remember_token,:string
+    add_index :users,:remember_token
+  end
+end

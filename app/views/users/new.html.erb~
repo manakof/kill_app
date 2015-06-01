@@ -1,0 +1,12 @@
+<h1>please enter pass-key and complete acount </h1>
+<div class="kill-form">
+<%= form_tag("/users", method:'post') do%>
+  <%=label :users,:email%>
+  <%=text_field :users,:email%>
+  <%=label :users,:pass_key%>
+  <%=text_field :users,:pass_key%>
+  <%= submit_tag ["create"]%>
+
+<%end%>
+</div>
+<%=link_to "Home",root_path%>
