@@ -8,7 +8,7 @@ group :development, :test do
   gem 'sqlite3'
 end
 proup :production do
-  gem 'pg','-.15.1'
+  gem 'pg'
 end
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
