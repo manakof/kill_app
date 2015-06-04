@@ -1,6 +1,0 @@
-<div class="media">
-<p>-------------------------------</p>
-<%=medium.media_id%><br/>
-<%=medium.content.html_safe%><br/>
-<%=medium.created_at%><br/>
-</div>
