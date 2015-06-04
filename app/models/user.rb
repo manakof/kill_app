@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   has_one :users_info,dependent: :destroy
-  has_many :medium,dependent: :destroy
+  has_many :media,dependent: :destroy
 
   before_save{self.email = email.downcase}
   before_create :create_remember_token
