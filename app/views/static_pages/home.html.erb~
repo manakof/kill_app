@@ -2,17 +2,17 @@
   <h1>KIll-Hz</h1>
 </div>
 
-<%= page_entries_info @media%>
+<%= page_entries_info @medium%>
 
 <div class="page_n">
-  <%=paginate @media%>
+  <%=paginate @medium%>
 </div>
 
   <div id="media">
-    <%= render @media %>
+    <%= render @medium %>
   </div>
 
 <div class="page_n">
-  <%=paginate @media%>
+  <%=paginate @medium%>
 </div>
 
