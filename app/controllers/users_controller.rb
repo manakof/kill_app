@@ -11,7 +11,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @media = current_user.media.all
+    @media = current_user.media.page(params[:page])
   end
 
   def destroy

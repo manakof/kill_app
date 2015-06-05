@@ -1,19 +1,24 @@
   <div class="media_back">
   
     <div class="media_no">
-      <%= a = medium.created_at.to_s(:db).split %><br/>
-      <%= a[0]%><br/>
-      <%= a[1]%><br/>
+      <% a = medium.created_at.to_s(:db).split %><br/>
+        [ <%= a[0]%> ] <br/>
+        [ <%= a[1]%> ] 
     </div>
    
     <div class="media_id">
       <%=medium.media_id%><br/>
-      <%=medium.user_id%>
+      <%=medium.user_id%><br/>
+      <%=link_to medium.user.name.to_s, users_path %>
     </div>
     
     <div class="media_content">
-      <%=medium.content.html_safe%>
+       <%=medium.content.html_safe%>
     </div>
+
+    <% if current_user?(medium.user)%>
+      <%= link_to "delete",medium,method: :delete,data:{confirm:"You shure?",title:medium.content}%>
+    <%end%>
 
   </div>
 
