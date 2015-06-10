@@ -1,0 +1,141 @@
+/* top page */
+/* line 3, /Users/sakatanoriko/Desktop/ruby/kill_app/app/assets/stylesheets/custom.css.scss */
+html {
+  background-color: #fff;
+  color: #000;
+}
+
+/* line 8, /Users/sakatanoriko/Desktop/ruby/kill_app/app/assets/stylesheets/custom.css.scss */
+body {
+  font-family: Helvatica;
+  text-align: center;
+}
+
+/* line 14, /Users/sakatanoriko/Desktop/ruby/kill_app/app/assets/stylesheets/custom.css.scss */
+.top-title h1 {
+  font-family: Gill sans;
+  font-size: 30pt;
+  color: #000;
+  text-align: center;
+}
+
+/* back */
+/* line 24, /Users/sakatanoriko/Desktop/ruby/kill_app/app/assets/stylesheets/custom.css.scss */
+.back {
+  width: 600px;
+  background-color: #fff;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+/* media */
+/* line 32, /Users/sakatanoriko/Desktop/ruby/kill_app/app/assets/stylesheets/custom.css.scss */
+.media_back {
+  border: solid 1px;
+  border-color: #000;
+  width: 500px;
+  height: 400px;
+  background-color: #fff;
+  margin: 0 auto;
+  margin-top: 50px;
+  position: relative;
+}
+
+/* line 43, /Users/sakatanoriko/Desktop/ruby/kill_app/app/assets/stylesheets/custom.css.scss */
+.media_no {
+  font-size: 7pt;
+  position: absolute;
+  top: 200px;
+  left: -200px;
+}
+
+/* line 49, /Users/sakatanoriko/Desktop/ruby/kill_app/app/assets/stylesheets/custom.css.scss */
+.media_id {
+  font-size: 7pt;
+  position: absolute;
+  top: 48%;
+  right: -20%;
+}
+
+/* line 55, /Users/sakatanoriko/Desktop/ruby/kill_app/app/assets/stylesheets/custom.css.scss */
+.media_content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -150px;
+  margin-left: -255px;
+  width: 510px;
+  height: 300px;
+  text-align: center;
+  background-color: #fff;
+}
+
+/* line 65, /Users/sakatanoriko/Desktop/ruby/kill_app/app/assets/stylesheets/custom.css.scss */
+.media_content iframe {
+  position: absolute;
+  top: 25%;
+  left: 25%;
+  width: 50%;
+  height: 50%;
+}
+
+/* show users media */
+/* form_tag */
+/* show .heml */
+/* line 84, /Users/sakatanoriko/Desktop/ruby/kill_app/app/assets/stylesheets/custom.css.scss */
+#title {
+  position: fixed;
+}
+
+/* temp-user */
+/* line 92, /Users/sakatanoriko/Desktop/ruby/kill_app/app/assets/stylesheets/custom.css.scss */
+.kill-form {
+  display: block;
+  width: 250px;
+  text-align: right;
+  margin: auto;
+}
+
+/* line 100, /Users/sakatanoriko/Desktop/ruby/kill_app/app/assets/stylesheets/custom.css.scss */
+#error_explanation {
+  color: #f00;
+}
+/* line 102, /Users/sakatanoriko/Desktop/ruby/kill_app/app/assets/stylesheets/custom.css.scss */
+#error_explanation ul {
+  list-style: none;
+  margin: 0 0 18px 0;
+}
+
+/* line 113, /Users/sakatanoriko/Desktop/ruby/kill_app/app/assets/stylesheets/custom.css.scss */
+a {
+  text-decoration: none;
+  line-height: 300%;
+  line-width: 100%;
+}
+
+/* line 119, /Users/sakatanoriko/Desktop/ruby/kill_app/app/assets/stylesheets/custom.css.scss */
+.link_b {
+  font-size: 15pt;
+}
+
+/* line 123, /Users/sakatanoriko/Desktop/ruby/kill_app/app/assets/stylesheets/custom.css.scss */
+.page_n {
+  font-size: 10pt;
+}
+/* users index */
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+
+
+ */
+
