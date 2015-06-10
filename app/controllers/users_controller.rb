@@ -26,7 +26,7 @@ class UsersController < ApplicationController
       @user = User.new(name:temp_user.name,email:temp_user.email,password_digest:temp_user.password_digest)
       if @user.save
         temp_user.destroy
-        info = UsersInfo.create(introduction:"Hi#{@user.name}!",photo:"<img src='/assets/kill_icon.png'>")
+        info = UsersInfo.create(introduction:"Hi#{@user.name}!")
         @user.users_info = info
         @mailer = CompUser.complete(@user)
         @mailer.deliver
@@ -55,6 +55,7 @@ class UsersController < ApplicationController
    #   flash[:success]="Profile updated"
    #   redirect_to @user
    # else
+   #
    #   render 'edit'
    # end
   end
