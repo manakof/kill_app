@@ -4,14 +4,26 @@
 
 <div class="page_n">
 
-// <%= page_entries_info @media%>
+  <%= page_entries_info @media%>
   <%=paginate @media%>
 </div>
 
   <div id="media">
     <%= render @media %>
   </div>
-
+  
+  <script>
+    var bodyNode = document.getElementsByTagName('body').item(0);
+    var media = document.getElementById('media');
+   media.width='100';
+   media.height='100';
+    var newNode = document.createElement('h1');
+    var text = document.createTextNode('hello');
+    newNode.appendChild(text);
+    media.appendChild(newNode);
+  
+  </script>
+    
 <div class="page_n">
   <%=paginate @media %>
 </div>

@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   resources :temp_users
   resources :users
   resources :sessions, only:[:new,:create,:destroy]
-  resources :users_info,only:[:edit,:update,:destroy,:create]
+  resources :users_info,only:[:edit,:update,:destroy,:create,:show]
   resources :media,only:[:create,:destroy]
 
   root 'static_pages#home'

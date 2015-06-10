@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :signed_in_user,only:[:show,:index,:edit,:update]
+  before_action :signed_in_user,only:[:show,:edit,:update]
   before_action :correct_user, only:[:show,:edit,:update]
   before_action :admin_user, only: :destroy
   def new
@@ -26,8 +26,10 @@ class UsersController < ApplicationController
       @user = User.new(name:temp_user.name,email:temp_user.email,password_digest:temp_user.password_digest)
       if @user.save
         temp_user.destroy
-        info = UsersInfo.create(introduction:"Hi#{@user.name}! ")
+        info = UsersInfo.create(introduction:"Hi#{@user.name}!",photo:"<img src='/assets/kill_icon.png'>")
         @user.users_info = info
+        @mailer = CompUser.complete(@user)
+        @mailer.deliver
 
         sign_in @user
         redirect_back_or @user

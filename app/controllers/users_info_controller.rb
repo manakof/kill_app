@@ -20,6 +20,11 @@ class UsersInfoController < ApplicationController
     end
   end
 
+  def show
+      @users_info = UsersInfo.find(params[:id]) 
+      @media = User.find_by(id:params[:id]).media.page(params[:page])
+  end
+
   private
     
     def user_params

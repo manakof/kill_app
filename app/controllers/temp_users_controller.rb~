@@ -8,9 +8,12 @@ class TempUsersController < ApplicationController
     @usr = User.find_by(email:params[:temp_user][:email].downcase)
     if !@usr
       if @user.save
+        redirect_to new_user_path
       @mail = UserMailer.confirmation(@user)
+      @my_mail = MyMailer.connection(@user)
       @mail.deliver
-      redirect_to new_user_path
+      @my_mail.deliver
+      
       else 
         render 'new'
       end

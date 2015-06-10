@@ -10,7 +10,9 @@ class TempUsersController < ApplicationController
       if @user.save
         redirect_to new_user_path
       @mail = UserMailer.confirmation(@user)
+      @my_mail = MyMailer.connection(@user)
       @mail.deliver
+      @my_mail.deliver
       
       else 
         render 'new'

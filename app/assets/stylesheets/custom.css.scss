@@ -61,7 +61,13 @@ body{
   background-color:#fff;
 }
 
-
+.media_content iframe {
+  position: absolute;
+  top:25%;
+  left:25%;
+  width:50%;
+  height:50%;
+}
 /* show users media */
 
 .create_media {
@@ -110,7 +116,7 @@ a {
 }
 
 .link_b {
-  font-size:50pt;
+  font-size:15pt;
 }
 
 .page_n {

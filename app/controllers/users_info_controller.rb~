@@ -4,6 +4,8 @@ class UsersInfoController < ApplicationController
   before_action :admin_user, only: :destroy
 
   def edit
+    #users_info modelが作られていないなら作成
+
   end
 
   def create
@@ -16,6 +18,11 @@ class UsersInfoController < ApplicationController
     else
       render 'edit'
     end
+  end
+
+  def show
+      @users_info = UsersInfo.find(params[:id]) 
+      @media = User.find_by(user_id:params[:id]).media.page(params[:page])
   end
 
   private
