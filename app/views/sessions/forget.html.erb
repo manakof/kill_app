@@ -1,0 +1,9 @@
+forget page
+
+<%= form_for "users",:url=>{:controller=>"users",:action=>'forget'} do |f|%>
+  <%= label :user,:email%>
+  <%= text_field :user,:email%><br/>
+  <%= label :user,:pass_key%>
+  <%= text_field :user,:pass_key %><br/>
+  <%= submit_tag ["reset"]%>
+<%end%>

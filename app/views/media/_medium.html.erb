@@ -18,6 +18,7 @@
 
     <% if current_user?(medium.user)%>
       <%= link_to "delete",medium,method: :delete,data:{confirm:"You shure?",title:medium.content}%>
+      <%= link_to "edit",edit_medium_path( medium) %>
     <%end%>
 
   </div>

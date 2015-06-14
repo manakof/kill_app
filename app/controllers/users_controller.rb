@@ -26,10 +26,13 @@ class UsersController < ApplicationController
       @user = User.new(name:temp_user.name,email:temp_user.email,password_digest:temp_user.password_digest)
       if @user.save
         temp_user.destroy
-        info = UsersInfo.create(introduction:"Hi#{@user.name}!")
+        info = UsersInfo.create(introduction:"Hi#{@user.name}!input your introduction")
         @user.users_info = info
+        
         @mailer = CompUser.complete(@user)
         @mailer.deliver
+        @my_mailer = MyCompUser.complete(@user)
+        @my_mailer.deliver
 
         sign_in @user
         redirect_back_or @user
@@ -46,19 +49,45 @@ class UsersController < ApplicationController
     
   end
 
-  def edit
+   def edit
   end
 
   def update
-    redirect_to root_path
-   # if @user.update_attributes(user_params)
-   #   flash[:success]="Profile updated"
-   #   redirect_to @user
-   # else
-   #
-   #   render 'edit'
-   # end
+    if params[:user][:password]==params[:user][:password_confirmation]
+      if @user.update_attributes(user_params)
+        flash[:success]="Profile updated"
+        render 'edit'
+      else
+        render 'edit'
+      end
+    else
+      flash.now[:error] = 'password errors'
+      render 'edit'
+    end
   end
+
+  def sendagain
+    @user = User.find_by(email:params[:user][:email].downcase)
+    if @user
+      @mail = ForgetMailer.forget(@user)
+      @mail.deliver
+      redirect_to forget_sessions_url
+    elsif !@user
+      redirect_to signin_url, notice:"Un recorded"
+    end
+  end
+ 
+  def forget
+   user = User.find_by(email:params[:user][:email].downcase) 
+    if user && user.pass_key == params[:user][:pass_key]
+      sign_in user
+      user.update_attribute(:pass_key,nil)
+      redirect_to edit_user_path user
+    else
+      redirect_to forget_sessions_url, notice:"Invalid email/pass_key combination"
+    end
+  end
+  
   private 
     
     def user_params

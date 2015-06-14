@@ -1,9 +1,23 @@
 Rails.application.routes.draw do
-  resources :temp_users
-  resources :users
-  resources :sessions, only:[:new,:create,:destroy]
-  resources :users_info,only:[:edit,:update,:destroy,:create]
-  resources :media,only:[:create,:destroy]
+  resources :temp_users do
+    collection do 
+      post 'sendagain'
+    end
+  end
+  resources :users do
+    collection do 
+      post 'sendagain'
+      post 'forget'
+    end
+  end
+  resources :sessions, only:[:new,:create,:destroy] do
+    collection do
+      get 'forget'
+    end
+  end
+  
+  resources :users_info,only:[:edit,:update,:destroy,:create,:show]
+  resources :media,only:[:create,:destroy,:edit,:update]
 
   root 'static_pages#home'
   match '/signup', to:'static_pages#hidden_page',via:'get'

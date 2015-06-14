@@ -1,2 +1,8 @@
-<h1>Media#edit</h1>
-<p>Find me in app/views/media/edit.html.erb</p>
+<h1>Edit Media</h1>
+
+<%=form_for(@medium) do |f|%>
+  <%=f.label :content %>
+  <%=f.text_area :content %><br/>
+  <%=f.submit ["post"] %>
+
+<%end%>

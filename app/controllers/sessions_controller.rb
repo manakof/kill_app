@@ -13,6 +13,10 @@ class SessionsController < ApplicationController
     end
   end
 
+  def forget
+
+  end
+
   def destroy
     sign_out
     redirect_to root_url
