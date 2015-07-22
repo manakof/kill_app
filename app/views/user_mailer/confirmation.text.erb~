@@ -1,6 +1,6 @@
 hi! <%=@user.name%>.
 
-Your  pass code is
+Your  pass_key is
 
 pass:<%=@key%>
 
@@ -11,4 +11,4 @@ pass:<%=@key%>
 If there is no idea to this e-mail,and should be discarded.
 
 
-///KIllApp///
+---- KIllApp ----

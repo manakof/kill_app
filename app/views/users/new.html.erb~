@@ -1,6 +1,6 @@
 <h1>Create kIll-Account!!!!!! </h1>
 <div class="kill-form">
-  
+  <div class="users_new">  
 <%= form_tag("/users", method:'post') do%>
   <%=label :users,:email%>
   <%=text_field :users,:email%><br/>
@@ -17,6 +17,5 @@
     <%= submit_tag ["send email"]%>
   </div>
 <%end%>
-
 </div>
-<%=link_to "Home",root_path%>
+</div>
