@@ -3,5 +3,52 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 /* users index */
+.users {
+  margin-bottom:40px;
+}
+.user_back { 
+  width:350px;
+  height:200px;
+  margin:0 auto;
+  position:relative;
+  margin-top:20px;
 
+  img{
+  position:absolute;
+  top:10%;left:0%;
+  width:150px;height:150px;
+  
+}
+ .user_name {
+    position:relative;
+    text-align:left;
+    top:45%;
+    left:50%;
+}
+}
 
+/* users page */
+
+.users_photo {
+  img {
+    margin-top:10px;
+  width:150px;height:150px;
+}
+  iframe {
+    margin-top:10px;
+    width:150px;height:150px;
+}
+}
+.users_name {
+ margin-top:20px; 
+}
+.users_introduction {
+  margin-bottom:30px;
+}
+
+.edit_user {
+  margin-bottom:20px;
+  input {
+  margin:5px;
+}
+}

@@ -1,3 +1,26 @@
-// Place all the styles related to the users_info controller here.
+// Place all the styles related to the temp_users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* edit users_info*/
+
+.users_info {
+  border:solid 1px;
+  padding-top:10px;
+  .users_info_photo {
+    textarea {
+      font-size:9pt;
+      padding:12px;
+      width:70%;
+      height:9em;
+      }
+    }
+  .users_info_introduction {
+    margin:20px;
+    textarea {
+    padding:12px;
+    width:60%;
+    height:5em;
+}
+}
+}

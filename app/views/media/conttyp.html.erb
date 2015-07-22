@@ -1,0 +1,21 @@
+<div class="page_n_top">
+  <%= page_entries_info @media%><br/>
+<%= params[:id]%>
+>>
+</div>
+<div class="media_type">
+  <%@media.each do|medium|%>
+    <div class="media_type_back">
+      <div class="media_type_content">
+        <%=medium.content.html_safe%>
+      </div>
+      <div class="media_type_user_id">
+        <%=link_to medium.user_id,user_path(medium.user.id)%>
+      </div>
+    </div>
+    <%end%>
+</div>
+<div class="page_n_bottom">
+  <%= paginate @media%>
+</div>
+

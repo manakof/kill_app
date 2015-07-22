@@ -1,3 +1,47 @@
 // Place all the styles related to the media controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.media_type { 
+  margin-top:10px;
+  margin-bottom:20px;
+}
+.media_type_back {
+  position:relative;
+  float:left; 
+  .media_type_content {
+    border:solid 1px;
+    width:196px;height:175px;
+    margin:0px 5px 0px;
+    word-wrap:break-word;
+    img {
+      width:196px;height:175px;
+}
+}
+}
+.media_type_user_id {
+
+  a{
+  // margin:0;
+  // padding:0;
+  font-size:5pt;
+ }
+}
+
+.delete_tag {
+  img{
+  position:absolute;
+    top:27px;left:102%;
+    width:20px;height:20px;
+    border:solid 1px; 
+}
+}
+.media_edit {
+  img {
+  position:absolute;
+  top:-1px;left:102%;
+  width:20px;height:20px;
+  border:solid 1px;
+  
+}
+}

@@ -8,11 +8,11 @@
 
   <%=f.submit "Sign in",class: "btn btn-large btn-primary"%>
 <%end%>
-
-<p>New user?<%=link_to "Sign up now?",signup_path%></p>
-
-<%=form_for "users",url=>{:controller=>"users",:action=>'sendagain'} do |f|%>
+<div class="reset_p">
+forget password?
+<%=form_for "users",:url=>{:controller=>"users",:action=>'sendagain'} do |f|%>
   <%=label :user,:email%>
-  <%=text_field :user,:email%><br/>
-  <%= submit_tag ["reset password"]%>
+  <%=text_field :user,:email%>
+  <%= submit_tag ["send email"]%>
 <%end%>
+</div>

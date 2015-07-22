@@ -1,4 +1,4 @@
-<h1>please enter pass-key and complete acount </h1>
+<h1>Create kIll-Account!!!!!! </h1>
 <div class="kill-form">
   
 <%= form_tag("/users", method:'post') do%>
@@ -9,10 +9,13 @@
   <%= submit_tag ["create"]%>
 <%end%>
 
+  <div class="reset_p">
+    <p>---------resend pass_key---------</p>
 <%=form_for "temp_users",:url=>{:controller=>"temp_users",:action=>'sendagain'} do |f| %>
-  <%=f.label :email%>
-  <%=f.text_field :email%><br/>
-  <%= f.submit "re send email",class: "btn btn-large btn-primary"%>
+  <%=label :temp_user, :email%>
+  <%=text_field :temp_user,:email%><br/>
+    <%= submit_tag ["send email"]%>
+  </div>
 <%end%>
 
 </div>

@@ -8,30 +8,48 @@
   <%= favicon_link_tag 'kill_icon.ico' %>
 </head>
 <body>
-  <div class="back">
-  <% flash.each do |key,value|%>
-    <div class="alert alert-<%=key%>"><%=value%></div>
-  <%end%>
-<%= yield %>
 
-<div class="link_b">
+  <div class="back">
+  <div class="top-title">
+    <h1>KIll-Hz</h1>
+  </div>
+
+ <div class="link_b">
 <% if signed_in?%>
-  <%=link_to "Home",root_path%>/
-  <%=link_to "show",user_path(current_user)%>/
-  <%=link_to "users",users_path%>/
-  <%=link_to "Edit",edit_user_path(current_user)%>/
-  <%=link_to "Edit_user_info",edit_users_info_path(current_user)%>/
-  <%=link_to "Sign out" ,signout_path,method:"delete"%>
+  <%=link_to "Home",root_path%> |
+  <%=link_to "my_page",user_path(current_user)%> |
+  <%=link_to "users",users_path%> |
+  <%=link_to "video",conttyp_medium_path("video")%> |
+  <%=link_to "sound",conttyp_medium_path("sound")%> |
+  <%=link_to "photo",conttyp_medium_path("photo")%> |
+  <%=link_to "text",conttyp_medium_path("text")%> |
+  <%=link_to "other",conttyp_medium_path("other")%>
+
 <%else%>
-  <%=link_to "sign in ",signin_path%>/
-  <%=link_to "Home",root_path%>/
-  <%=link_to "sign up", signup_path%>/
-  <%=link_to "users",users_path%>
+  <%=link_to "Home",root_path%> |
+  <%=link_to "users",users_path%> |
+  <%=link_to "video",conttyp_medium_path("video")%> |
+  <%=link_to "sound",conttyp_medium_path("sound")%> |
+  <%=link_to "photo",conttyp_medium_path("photo")%> |
+  <%=link_to "text",conttyp_medium_path("text")%> |
+  <%=link_to "other",conttyp_medium_path("other")%>
 <%end%>
 </div>
 
------this content by KIll Hez-----
+  <% flash.each do |key,value|%>
+    <div class="alert-<%=key%>"><%=value%></div>
+  <%end%>
+  <%= yield %>
+<div class="link_b">
+<% if signed_in?%>
+  <%=link_to "my_page",user_path(current_user)%> |
+  <%=link_to "Sign out" ,signout_path,method:"delete"%>
+<%else%>
+  <%=link_to "Home",root_path%> |
+  <%=link_to "sign in ",signin_path%>
+<%end%>
 </div>
-
+<div class="last">---kIll App--- <div>
+    </div>
 </body>
 </html>

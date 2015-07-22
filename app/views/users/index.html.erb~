@@ -1,29 +1,29 @@
-<h1>Users</h1>
-
-<ul>
+<div class="users">
 <% @users.each do |user|%>
-  <li>
-  <%=user.id%><br/>
-  name:<%=link_to user.name.to_s,users_info_path(user.id) %> 
+<h5>//////////////////////////////////////////////  User  ///////////////////////////////////////////////</h5>
 
-
+  <div class="user_back">
+  <div class="user_content">
   <%if user.users_info.photo.to_s.empty?%>
     <%= image_tag("kill_icon.png")%>
   <%else%>
-  <%= user.users_info.photo.html_safe %> </br>
+  <%= user.users_info.photo.html_safe %>
 <%end%>
+</div>
+
+   <div class="user_name">
+     id: <%=user.id%> <br/>
+     name: <%=link_to user.name.to_s,user_path(user.id) %><br/>
   <%if signed_in?%>
+    email: <%=user.email%><br/>
   <%if current_user.admin? && !current_user?(user)%>
     |<%=link_to "delete",user,method: :delete,data:{confirm:"You sure?"}%>
+  <%end%> 
   <%end%>
- <h1>email:</h1><h2><%=user.email%></h2><br/>
- 
+  </div>
+  </div>
 <%end%>
-<br/>
+<h5>//////////////////////////////////////////////  User  ///////////////////////////////////////////////</h5>
 
 
- </li>
-  -------------------------------------------
-<%end%>
-</ul>
-
+</div>

@@ -1,34 +1,54 @@
-<div id="title">
-  <%=Time.now%><br>
-  <%=Date.today%><br>
-  <h1>show page:</h1>
-  <a href="/">Home</a>
+<div class="users_name">
+ <h2>  
+   - <%= @user.name %> -
+  </h2>
 </div>
-<h1><%= @user.name %></h1>
-  <h3>Introduction</h3><%=@user.users_info.introduction%>
- 
-  <div class="media_back">
-  <%= form_tag '/media', method:'create' do%>
-    <%=label :medium,:content%>
+<div class="users_photo">
+<%if @user.users_info.photo.to_s.empty?%>
+  <%= image_tag ("kill_icon.png")%>
+<%else%>
+  <%= @user.users_info.photo.html_safe%><br/>
+<%end%>
+</div>
+
+<h5>Introduction:</h5>
+
+<div class="users_introduction">
+<%=@user.users_info.introduction.html_safe%><br/>
+_____________________________
+</div>
+<div class="content_form">
+  <%if signed_in?%>
+    <%=link_to "edit_my_info",edit_users_info_path(current_user)%><br/>
+    <div class="media_back">
+  <%= form_tag @medium, method:'create' do%>
+    <%=label :medium ,:content%> <br/>
     <%=text_area :medium,:content %><br/>
-  
-    video: <%=radio_button :medium, :media_id,'video',{}%><br/>
-    mucic: <%=radio_button :medium, :media_id,'music',{}%><br/>
-
-    <%=submit_tag ["create"]%>
+    <div class="title">
+    <%=label :medium, :title%><br/>
+    <%=text_field :medium,:title%><br/>
+    </div>
+     <%=radio_button :medium, :media_id,'video',{:checked=>true}%>
+    :video <%=radio_button :medium, :media_id,'sound',{}%>
+    :sound <%=radio_button :medium, :media_id,'photo',{}%>
+    :photo  <%=radio_button :medium, :media_id,'text',{}%>
+    :text <%=radio_button :medium, :media_id,'other',{}%>
+    :other<br/>
+    <div class="submit_button">
+      <%=submit_tag ["post"]%>
+    </div>
   <%end%>
-  </div>
-
-
-  <div class="page_n">
+</div>
+<%end%>
+</div>
+  <div class="page_n_top">
     <%= page_entries_info @media%>
-    <%= paginate @media%>
   </div>
 
   <div id="media">
     <%= render @media%>
   </div>
 
-  <div class="page_n">
+  <div class="page_n_bottom">
     <%=paginate @media%>
   </div>

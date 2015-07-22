@@ -1,25 +1,45 @@
   <div class="media_back">
-  
-    <div class="media_no">
-      <% a = medium.created_at.to_s(:db).split %><br/>
-        [ <%= a[0]%> ] <br/>
-        [ <%= a[1]%> ] 
-    </div>
-   
-    <div class="media_id">
-      <%=medium.media_id%><br/>
-      <%=medium.user_id%><br/>
-      <%=link_to medium.user.name.to_s, users_path %>
-    </div>
-    
     <div class="media_content">
        <%=medium.content.html_safe%>
     </div>
 
-    <% if current_user?(medium.user)%>
-      <%= link_to "delete",medium,method: :delete,data:{confirm:"You shure?",title:medium.content}%>
-      <%= link_to "edit",edit_medium_path( medium.media_id) %>
+    <div class="media_title">
+      <p>
+      <%if medium.title.to_s.empty?%>
+        no title
+      <%else%>
+        <%=medium.title%><br/>
+      <%end%>
+      </p>
+    </div>
+
+    <div class="media_no">
+      <% a = medium.created_at.to_s(:db).split %><br/>
+       date: [ <%= a[0]%> ] <br/>
+       time: [ <%= a[1]%> ] 
+    </div>
+   
+    <div class="media_id">
+      <%=link_to medium.media_id.to_s,conttyp_medium_path(medium.media_id.to_s)%><br/>
+    </div>
+    <div class="media_user_name">
+      <%=medium.user_id%>.
+      <%=link_to medium.user.name.to_s, user_path(medium.user.id) %>
+    </div>
+  
+  <div class="media_sum">
+      <%=medium.id.to_s%>
+    </div>
+
+    <%if signed_in?%>
+    <% if current_user?(medium.user) || current_user.admin?%>
+      <div class="media_edit">
+        <%= link_to image_tag('edit_logo.png',{:title=>"edit",:width=>"20",:height=>"20"}),edit_medium_path(medium) %>
+    </div>
+    <div class="delete_tag">
+      <%= link_to image_tag('delete.png',{:alt=>"delete",:title=>"delete",:width=>"20",:height=>"20"}),medium,method: :delete,data:{confirm:"You shure?",title:medium.content}%>
+      </div>
     <%end%>
-
+  <%end%>
   </div>
-
+  

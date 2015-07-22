@@ -11,14 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150614025016) do
+ActiveRecord::Schema.define(version: 20150718064248) do
 
   create_table "media", force: true do |t|
-    t.string   "content"
+    t.text     "content",    limit: 255
     t.string   "media_id"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "title"
   end
 
   add_index "media", ["user_id", "created_at"], name: "index_media_on_user_id_and_created_at"

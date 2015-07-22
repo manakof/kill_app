@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_action :signed_in_user,only:[:show,:edit,:update]
-  before_action :correct_user, only:[:show,:edit,:update]
+  before_action :signed_in_user,only:[:edit,:update]
+  before_action :correct_user, only:[:edit,:update]
   before_action :admin_user, only: :destroy
   def new
     @user = TempUser.new
@@ -11,7 +11,9 @@ class UsersController < ApplicationController
   end
 
   def show
-    @media = current_user.media.page(params[:page])
+    @user = User.find(params[:id])
+    @media = @user.media.page(params[:page]) 
+    @medium = Medium.new
   end
 
   def destroy
@@ -44,6 +46,7 @@ class UsersController < ApplicationController
       end
 
     else
+      flash.now[:error] = 'Invalid email/pass_key combination'
       render 'new'
     end
     
@@ -56,7 +59,7 @@ class UsersController < ApplicationController
     if params[:user][:password]==params[:user][:password_confirmation]
       if @user.update_attributes(user_params)
         flash[:success]="Profile updated"
-        render 'edit'
+        redirect_to @user
       else
         render 'edit'
       end

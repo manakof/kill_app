@@ -17,10 +17,13 @@ Rails.application.routes.draw do
   end
   
   resources :users_info,only:[:edit,:update,:destroy,:create,:show]
-  resources :media,only:[:create,:destroy,:edit,:update]
-
+  resources :media,only:[:create,:destroy,:edit,:update] do
+    member do
+      get 'conttyp'
+    end
+  end
   root 'static_pages#home'
-  match '/signup', to:'static_pages#hidden_page',via:'get'
+  match '/kill_app_hidden_signup', to:'static_pages#hidden_page',via:'get'
   match '/signin',to:'sessions#new', via:'get'
   match '/signout',to:'sessions#destroy', via:'delete'
   # The priority is based upon order of creation: first created -> highest priority.

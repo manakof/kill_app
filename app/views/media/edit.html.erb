@@ -1,8 +1,28 @@
 <h1>Edit Media</h1>
 
-<%=form_for(@medium) do |f|%>
-  <%=f.label :content %>
-  <%=f.text_area :content %><br/>
-  <%=f.submit ["post"] %>
+<%= render @medium%>
 
+
+
+<div class="content_form">
+<div class="media_back">
+<%=form_for(@medium) do |f|%>
+  <%=f.label :content %><br/>
+  <%=f.text_area :content %><br/>
+  <div class="title">
+    <%=f.label :title%><br/>
+  <%=f.text_field :title%><br/>
+  </div>
+     <%=f.radio_button :media_id,'video',{}%>
+  :video <%=f.radio_button :media_id,'sound',{}%>
+  :sound <%=f.radio_button :media_id,'photo',{}%>
+  :photo  <%=f.radio_button :media_id,'text',{}%>
+  :text <%=f.radio_button :media_id,'other',{}%>
+  :other<br/>
+  <div class="submit_button">
+    <%=f.submit ["post"]%>
+  </div>
 <%end%>
+</div>
+</div>
+<%=link_to "cancel",user_path(current_user)%>

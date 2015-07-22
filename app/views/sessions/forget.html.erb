@@ -1,9 +1,8 @@
-forget page
-
+<h1>Reset password</h1>
 <%= form_for "users",:url=>{:controller=>"users",:action=>'forget'} do |f|%>
   <%= label :user,:email%>
-  <%= text_field :user,:email%><br/>
+  <%= text_field :user,:email%>
   <%= label :user,:pass_key%>
-  <%= text_field :user,:pass_key %><br/>
+  <%= text_field :user,:pass_key %>
   <%= submit_tag ["reset"]%>
 <%end%>

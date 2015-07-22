@@ -1,14 +1,13 @@
 class MediaController < ApplicationController
-  before_action :signed_in_user
+  before_action :signed_in_user, only: [:destroy,:edit,:update,:create]
   before_action :correct_user, only: [:destroy,:edit,:update]
   def create
-    
     @medium = current_user.media.build(media_params)
     if @medium.save
-     flash[:success]="posted!"
+      flash[:success]="posted!"
       redirect_to user_path(current_user)
     else
-      render user_path(current_user)
+      redirect_to  user_path(current_user)
     end
     
   end
@@ -17,23 +16,32 @@ class MediaController < ApplicationController
   end
   
   def update
-   @medium.update_attribute(:content,params[:medium][:content])
-   redirect_to user_path(current_user)
+   @medium.update_attributes(media_params)
+   render 'edit'
   end
 
   def destroy
     @medium.destroy
-    redirect_to user_path(current_user)
+    redirect_back_or root_path
   end
+
+  def conttyp
+    @media = Medium.where(media_id:params[:id]).page(params[:page]).per(12)
+  end
+
 
   private 
 
     def media_params
-      params.require(:medium).permit(:content,:media_id)
+      params.require(:medium).permit(:content,:media_id,:title)
     end
 
     def correct_user
-      @medium = current_user.media.find_by(id: params[:id])
+      if current_user.admin?
+        @medium = Medium.find_by(id: params[:id]) 
+      else
+        @medium = current_user.media.find_by(id:params[:id])
+      end
       redirect_to(root_path) if @medium.nil?
     end
 end

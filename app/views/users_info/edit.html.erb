@@ -1,13 +1,25 @@
-<h1>users_info edit page </h1>
-<div class="kill-form">
+<div class="users_name">
+  <h4>edit <%=@user.name%>'s_info</h4>
+</div>
+<div class="users_info">
+  <div class="users_photo">
+  <%if @user.users_info.photo.to_s.empty?%>
+    <%= image_tag("kill_icon.png")%>
+  <%else%>
+    <%= @user.users_info.photo.html_safe%><br/>
+  <%end%>
+  </div>
   <%=form_tag(users_info_path(@user),method:'patch') do %>
     <%=render 'shared/error_messages'%><br/>
-
-    <%=label @user.users_info,:photo%>
-    <%=text_field_tag 'users_info[photo]',@user.users_info.photo%><br/>
-    <%=label @user.users_info,:introduce%>
+    <div class="users_info_photo">
+      <%=label @user.users_info,:photo%> Link >><br/>
+    <%=text_area_tag 'users_info[photo]',@user.users_info.photo%><br/>
+    </div>
+    <div class="users_info_introduction">
+      <%=label @user.users_info,:introduction%> >><br/>
     <%=text_area_tag 'users_info[introduction]',@user.users_info.introduction%><br/>
-
+    </div>
     <%=submit_tag ["save"] %>
   <%end%>
+  <%=link_to "Edit_name_password",edit_user_path(current_user)%>
 </div>
