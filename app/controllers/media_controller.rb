@@ -17,7 +17,7 @@ class MediaController < ApplicationController
   
   def update
    @medium.update_attributes(media_params)
-   render 'edit'
+   redirect_to edit_medium_path params[:id]
   end
 
   def destroy

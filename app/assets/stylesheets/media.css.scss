@@ -9,13 +9,25 @@
 .media_type_back {
   position:relative;
   float:left; 
+  margin:0 auto;
   .media_type_content {
     border:solid 1px;
-    width:196px;height:175px;
+    width:196px;height:176px;
     margin:0px 5px 0px;
     word-wrap:break-word;
     img {
-      width:196px;height:175px;
+      position:absolute;
+      top:50%;left:50%;
+      margin-top:-103px;
+      margin-left:-98px;
+      width:196px;height:176px;
+}
+    iframe{
+      position:absolute;
+      top:50%;left:50%;
+      margin-top:-103px;
+      margin-left:-98px;
+      width:196px;height:176px;  
 }
 }
 }

@@ -15,3 +15,30 @@
 //= require turbolinks
 //= require_tree .
 
+
+$(function() {
+  $(".iframe").colorbox({
+    iframe:true,
+    width:"80%",
+    height:"80%",
+    opacity:1
+  });
+});
+
+$(function() {
+  $(".photo").colorbox({
+    maxWidth:"90%",
+    maxHeight:"90%",
+    opacity:0.9
+  });
+});
+
+$(function() {
+  $(".gallery").colorbox({
+    rel:'slideshow',
+    slideshow:false,
+    maxWidth:"90%",
+    maxHeight:"90%",
+    opacity:0.9
+  });
+})

@@ -48,6 +48,34 @@ body{
   margin-bottom:40px;
   position:relative;
 }
+.media_content {
+  border:solid 1px;
+  position:absolute;
+  top:40%; left:32%;
+  margin-top: -125px;
+  margin-left:-140px;
+  width:280px;height:250px;
+  word-wrap:break-word;
+}
+
+.media_content iframe {
+  position: absolute;
+  top:50%;
+  left:50%;
+  margin-top:-125px;
+  margin-left:-140px;
+  width:280px;height:250px
+}
+
+.media_content img {
+  position: absolute;
+  top:50%;
+  left:50%;
+  margin-top:-125px;
+  margin-left:-140px;
+  width:280px;height:250px
+}
+
 .media_title {
   font-size:13pt;
   font-weight:500;
@@ -79,33 +107,6 @@ text-decoration:underline;
   font-size:7pt;
   position:absolute;
   top:97%;left:102%; 
-}
-.media_content {
-  border:solid 1px;
-  position:absolute;
-  top:40%; left:32%;
-  margin-top: -125px;
-  margin-left:-140px;
-  width:280px;height:250px;
-  word-wrap:break-word;
-}
-
-.media_content iframe {
-  position: absolute;
-  top:50%;
-  left:50%;
-  margin-top:-125px;
-  margin-left:-140px;
-  width:280px;height:250px
-}
-
-.media_content img {
-  position: absolute;
-  top:50%;
-  left:50%;
-  margin-top:-125px;
-  margin-left:-140px;
-  width:280px;height:250px
 }
   
 /* show .heml */
