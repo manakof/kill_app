@@ -23,7 +23,7 @@ Rails.application.routes.draw do
     end
   end
   root 'static_pages#home'
-  match '/kill_app_hidden_signup', to:'static_pages#hidden_page',via:'get'
+  match '/kill_app_hidden_signup', to:'temp_users#new',via:'get'
   match '/signin',to:'sessions#new', via:'get'
   match '/signout',to:'sessions#destroy', via:'delete'
   # The priority is based upon order of creation: first created -> highest priority.
