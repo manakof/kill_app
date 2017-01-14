@@ -1,11 +1,17 @@
 source 'https://rubygems.org'
 gem 'bcrypt-ruby'
+<<<<<<< HEAD
 #twitter
 gem 'twitter'
 #gem 'oauth'
 #gem 'omniauth-twitter'
+=======
+gem 'bcrypt'
+
+>>>>>>> 0251fbf7fb58259d1dd86048a0ade223c7a7da6b
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.4'
+gem 'rails'
+
 # Use sqlite3 as the database for Active Record
 group :development, :test do
   gem 'sqlite3'
