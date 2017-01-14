@@ -1,14 +1,11 @@
 source 'https://rubygems.org'
 gem 'bcrypt-ruby'
-<<<<<<< HEAD
 #twitter
 gem 'twitter'
 #gem 'oauth'
 #gem 'omniauth-twitter'
-=======
 gem 'bcrypt'
 
->>>>>>> 0251fbf7fb58259d1dd86048a0ade223c7a7da6b
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails'
 
