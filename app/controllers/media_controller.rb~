@@ -5,6 +5,7 @@ class MediaController < ApplicationController
   require 'twitter'
 
   def create
+  
     @medium = current_user.media.build(media_params)
     if @medium.save
 
@@ -12,9 +13,9 @@ class MediaController < ApplicationController
        config.consumer_key = Rails.application.secrets.twitter_consumer_key 
        config.consumer_secret = Rails.application.secrets.twitter_consumer_secret
        config.access_token = Rails.application.secrets.twitter_access_token
-       config.access_token_secret = "OT5tJg0gLQinM8w6S0r8YCDNAROm4MExHCN8vjwG5YqQU"
+       config.access_token_secret = Rails.application.secrets.twitter_access_secret 
      end
-      client.update(@medium.content)
+      client.update(current_user.name)
 
       flash[:success]="posted!"
       redirect_to user_path(current_user)
@@ -45,7 +46,7 @@ class MediaController < ApplicationController
   private 
 
     def media_params
-      params.require(:medium).permit(:content,:media_id,:title)
+      params.require(:medium).permit(:content,:content2,:media_id,:title)
     end
 
     def correct_user

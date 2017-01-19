@@ -129,14 +129,15 @@ text-decoration:underline;
   position:relative;
   z-index:1;
     textarea {
-      font-size:9pt;
+      font-size:10pt;
       z-index:2;
-      padding:12px;
+      padding:19px;
       width:80%;
       height:15em;
+      line-height:1em;
     }
   .title {
-    margin:12px;
+    margin:1px;
     input {
       width:40%;
       margin:0px;
@@ -144,10 +145,12 @@ text-decoration:underline;
   }
   .submit_button {
     input {
-      margin:20px;  
+      margin:5px;  
 }
 }
-
+  .html {
+      margin:1px; 
+}
 }
 
 

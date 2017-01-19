@@ -17,13 +17,23 @@
 
 
 $(function() {
-  $(".iframe").colorbox({
+  $(".video").colorbox({
     iframe:true,
     width:"80%",
     height:"80%",
     opacity:1
   });
 });
+
+$(function() {
+  $(".sound").colorbox({
+    iframe:true,
+    width:"80%",
+    height:"80%",
+    opacity:1
+  });
+});
+
 
 $(function() {
   $(".photo").colorbox({
@@ -33,6 +43,7 @@ $(function() {
   });
 });
 
+
 $(function() {
   $(".gallery").colorbox({
     rel:'slideshow',
@@ -41,4 +52,24 @@ $(function() {
     maxHeight:"90%",
     opacity:0.9
   });
-})
+});
+
+$(function(){
+  $('.html').click(function(){
+    $(".content").val("");
+  });
+});
+
+$(function(){
+  $(':radio[name="medium[media_id]"]').change(function(){
+    if ($('input[name="medium[media_id]"]:checked').val()==='video'){
+        $(".content").val("<a class=\"video\"\n\n href=\"!!!!!!\"> \n\n <img src= \"!!!!!!\">\n\n</img></a>");
+    }else if($('input[name="medium[media_id]"]:checked').val()==='sound'){
+        $(".content").val("<a class=\"sound\"\n\n href=\"!!!!!!\"> \n\n <img src= \"!!!!!!\">\n\n</img></a>");
+    }else if($('input[name="medium[media_id]"]:checked').val()==='photo'){
+        $(".content").val("<a class=\"photo\"\n\n href=\"!!!!!!\"> \n\n <img src= \"!!!!!!\">\n\n</img></a>");
+    }else{
+        $(".content").val("");
+    }
+  });
+});

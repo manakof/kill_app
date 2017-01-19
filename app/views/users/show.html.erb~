@@ -21,20 +21,29 @@ _____________________________
   <%if signed_in?%>
     <%=link_to "edit_my_info",edit_users_info_path(current_user)%><br/>
     <div class="media_back">
-  <%= form_tag @medium, method:'create' do%>
-    <%=label :medium ,:content%> <br/>
-    <%=text_area :medium,:content %><br/>
+
+     
+     <%= form_tag @medium, method:'create' do%>
+
+        <%=label :medium ,:content%> <br/>
+        <%=radio_button :medium, :media_id,'video',{:checked=>true}%>:video 
+        <%=radio_button :medium, :media_id,'sound',{}%>:sound 
+        <%=radio_button :medium, :media_id,'photo',{}%>:photo  
+        <%=radio_button :medium, :media_id,'text',{}%>:text 
+        <%=radio_button :medium, :media_id,'other',{}%>:other  
+        
+        <%= button_tag :type=>'button' ,:class=>"html" do %>
+          <%=content_tag(:strong,'html')%>
+        <%end%><br/>
+
+        <%=text_area :medium,:content,:class=>"content" %><br/>
+       
+         
     <div class="title">
     <%=label :medium, :title%><br/>
     <%=text_field :medium,:title%><br/>
-    </div>
-     <%=radio_button :medium, :media_id,'video',{:checked=>true}%>
-    :video <%=radio_button :medium, :media_id,'sound',{}%>
-    :sound <%=radio_button :medium, :media_id,'photo',{}%>
-    :photo  <%=radio_button :medium, :media_id,'text',{}%>
-    :text <%=radio_button :medium, :media_id,'other',{}%>
-    :other<br/>
-    <div class="submit_button">
+    </div>    
+          <div class="submit_button">
       <%=submit_tag ["post"]%>
     </div>
   <%end%>
@@ -44,7 +53,6 @@ _____________________________
   <div class="page_n_top">
     <%= page_entries_info @media%>
   </div>
-
   <div id="media">
     <%= render @media%>
   </div>
