@@ -15,7 +15,7 @@ class MediaController < ApplicationController
        config.access_token = Rails.application.secrets.twitter_access_token
        config.access_token_secret = Rails.application.secrets.twitter_access_secret 
      end
-      client.update(current_user.name)
+      client.update(current_user.name++"<h1>  posted content!</h1> \n "++"  https://kill-app.herokuapp.com/  ")
 
       flash[:success]="posted!"
       redirect_to user_path(current_user)
@@ -46,7 +46,7 @@ class MediaController < ApplicationController
   private 
 
     def media_params
-      params.require(:medium).permit(:content,:content2,:media_id,:title)
+      params.require(:medium).permit(:content,:media_id,:title)
     end
 
     def correct_user
