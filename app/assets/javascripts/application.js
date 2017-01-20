@@ -21,24 +21,24 @@ $(function() {
     iframe:true,
     width:"80%",
     height:"80%",
-    opacity:1
+    opacity:0.9
   });
 });
 
 $(function() {
   $(".sound").colorbox({
     iframe:true,
-    width:"80%",
-    height:"80%",
-    opacity:1
+    width:"70%",
+    height:"70%",
+    opacity:0.9
   });
 });
 
 
 $(function() {
   $(".photo").colorbox({
-    maxWidth:"90%",
-    maxHeight:"90%",
+    maxWidth:"70%",
+    maxHeight:"70%",
     opacity:0.9
   });
 });
