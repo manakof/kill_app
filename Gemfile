@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby "2.6.3"
+ruby "2.5.3"
 gem 'bcrypt-ruby'
 #twitter
 gem 'twitter'
@@ -12,11 +12,11 @@ gem 'rails'
 
 # Use sqlite3 as the database for Active Record
 group :development, :test do
-  gem 'sqlite3'
+  gem 'sqlite3','~> 1.3.6'
   gem 'pry-rails'
 end
 group :production do
-  gem 'pg'
+  gem 'pg','~> 0.19.0'
   gem 'rails_12factor'
   gem 'puma'
 end
